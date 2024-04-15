@@ -19,10 +19,10 @@ const createActivity = async(activityName, activityDescription) => {
 const deleteActivity = async(id) => {
   try{
     const { rows: [deletedId] } = await client.query(`
-      DELETE * FROM activities WHERE id = ${id}
+      DELETE FROM activities WHERE id = ${id}
       RETURNING *;
     `)
-    console.log('Deleted ID:', deletedId);
+    // console.log('Deleted ID:', deletedId);
     return deletedId;
   } catch(error) {
     console.log(error);
